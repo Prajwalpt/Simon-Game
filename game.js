@@ -49,6 +49,7 @@ function checkAnswer(currentLevel){
                 nextSequence();
             }, 1000);
         }
+        Winner(currentLevel);
     }
     else{
         console.log("wrong");
@@ -118,4 +119,14 @@ function startOver(){
     level = 0;
     gamepattern = [];
     started = false;
+}
+
+function Winner(currentLevel){
+    if(currentLevel===10){
+        $("#level-title").text("Winner!! You Cleared Level" + currentLevel).css("color","white");
+        var win = new Audio("sounds\\victory.mp3");
+        win.play(); 
+        
+        startOver();
+    }
 }
